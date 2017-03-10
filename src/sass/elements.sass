@@ -1,1 +1,22 @@
 @import _mixins
+
+button, .btn, input[type="button"]
+	border: none
+	background: none
+	cursor: pointer
+
+	display: inline-block
+	background-color: $main-color
+	padding: 0.6em 1.2em
+	line-height: 1em
+
+	transition: background 100ms
+
+	white-space: nowrap
+	text-overflow: ellipsis
+	overflow: hidden
+	&.focus, &:focus, &:hover, &:active
+		text-decoration: none
+		background-color: $main-color-hover
+	&:active, &:focus
+		outline: none

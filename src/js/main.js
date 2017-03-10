@@ -1,7 +1,7 @@
 
-if ($.browser.mobile) $('body').addClass('mobile');
-if ($.browser.safari) $('body').addClass('safari');
-if ($.browser.iphone || $.browser.ipad || $.browser.ipod ) $('body').addClass('ios');
+// if ($.browser.mobile) $('body').addClass('mobile');
+// if ($.browser.safari) $('body').addClass('safari');
+// if ($.browser.iphone || $.browser.ipad || $.browser.ipod ) $('body').addClass('ios');
 
 $(document).on('ready', function () {
 	var $window = $(window),

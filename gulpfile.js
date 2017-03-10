@@ -1,7 +1,7 @@
 var prod = false;
 
 var gulp = require('gulp'),
-	jade = require('gulp-jade'),
+	pug = require('gulp-pug'),
 	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
 	uglify = require('gulp-uglify'),
@@ -18,14 +18,14 @@ var path = {
 		fonts: 'dist/fonts/'
 	},
 	src: {
-		html: ['src/**/*.jade'],
+		html: ['src/**/*.pug'],
 		js: 'src/js/*.js',
 		style: 'src/sass/*.*',
 		img: 'src/img/**/*.*',
 		fonts: 'src/fonts/**/*.*'
 	},
 	watch: {
-		html: 'src/**/*.jade',
+		html: 'src/**/*.pug',
 		js: 'src/js/**/*.js',
 		style: 'src/sass/**/*.sass',
 		img: 'src/img/**/*.*',
@@ -59,11 +59,11 @@ gulp.task('sass', function () {
 		.pipe(reload({stream:true}));
 });
 
-// JADE
-gulp.task('jade', function(){
+// PUG
+gulp.task('pug', function(){
 	var pretty = prod ? false : true;
 	gulp.src(path.src.html)
-		.pipe(jade({
+		.pipe(pug({
 			pretty: true
 		}))
 		.pipe(gulp.dest(path.dist.html))
@@ -98,11 +98,11 @@ gulp.task('browser-sync', function() {
 
 // WATCH
 gulp.task('watch', function(){
-	gulp.watch(path.watch.html, ['jade']);
+	gulp.watch(path.watch.html, ['pug']);
 	gulp.watch(path.watch.style, ['sass']);
 	gulp.watch(path.watch.js, ['scripts']);
 	gulp.watch(path.watch.img, ['images']);
 });
 
 // DEFAULT
-gulp.task('default', ['sass', 'jade', 'scripts', 'images', 'fonts', 'browser-sync', 'watch']);
+gulp.task('default', ['sass', 'pug', 'scripts', 'images', 'fonts', 'browser-sync', 'watch']);
