@@ -23,6 +23,7 @@ Thumbs.db
 .DS_Store
 
 # IDEs and editors
+*.sublime-workspace
 /.vscode
 /.idea
 /node_modules
