@@ -10,6 +10,13 @@ $info-color: #5bc0de
 $error-color: #ff5656
 $base-font-color: #353434
 
+@mixin max-lines ($lines:1, $line-height: $line-height)
+	max-height: $line-height * $lines
+	overflow: hidden
+
+@mixin height-lines ($lines:1, $line-height: $line-height)
+	height: $line-height * $lines
+	overflow: hidden
 
 //== Media queries breakpoints
 
