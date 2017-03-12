@@ -1,3 +1,4 @@
+- fill info in README.md
 - change lang attribute in HTML tag (layout.pug)
 - generate favicon
 - compress images https://compressor.io/

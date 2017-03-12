@@ -5,6 +5,8 @@
 
 html
 	font: $font
+	@media (min-width: 2200px)
+		font-size: $font-size * 2
 
 body
 	margin: 0
@@ -25,7 +27,8 @@ a
 	// color: $main-color
 
 p
-	color: $base-font-color
+
+span
 
 img
 	border: none
@@ -37,11 +40,15 @@ ul
 	padding: 0
 	li
 		list-style: none
-	&.inline
-		li
+	&.list-inline
+		& > li
 			display: inline-block
 
 h1, h2, h3, h4, h5, h6
+	line-height: 1em
+	&:first-child
+		margin-top: 0
+
 h1
 h2
 h3
@@ -84,20 +91,16 @@ textarea
 
 // INPUT
 input
-	// height: 64px
 	appearance: none
 	border: none
 	outline-color: $main-color
 
 	color: $base-font-color
 	font: $font
-	// font-weight: 400
-	// transition: background .3s
 	&:focus
 		// outline: none
 	&::placeholder
 		font: $font
-		// font-weight: 400
 //	END INPUT
 
 // CHECKBOX
@@ -244,6 +247,7 @@ input
 	width: 80%
 	@media #{$media-sm}
 		width: 100%
+
 .inline-layout
 	font-size: 0
 	letter-spacing: 0

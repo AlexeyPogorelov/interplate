@@ -5,7 +5,7 @@ html(lang='en')
 		title #{title}
 		block head
 			include ./partials/head.pug
-	body
+	body(class= bodyClass)
 		block noscript
 			include ./partials/noscript.pug
 
