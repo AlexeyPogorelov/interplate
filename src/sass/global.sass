@@ -62,183 +62,46 @@ hr
 	height: 1px
 	margin-top: 1rem
 	margin-bottom: 1rem
+	clear: both
 
 label
 	border-radius: 0
 
 button, input, select, textarea
 	font: $font
+	font-size: 1rem
 
 //	SELECT
 select
 	appearance: none
 	border: 1px solid $base-font-color
 	outline-color: $main-color
-	// background-repeat: no-repeat
-	// height: 48px
 	&:-moz-focusring
 		color: transparent
 		text-shadow: none
-
-textarea
-	border: 1px solid $base-font-color
-	outline: none
-	resize: none
-	outline-color: $main-color
-	&::placeholder
-		font: $font
 //	END SELECT
 
-// INPUT
-input
-	appearance: none
-	border: none
+// INPUTS & TEXTAREA
+input,
+textarea
 	outline-color: $main-color
-
-	color: $base-font-color
 	font: $font
-	&:focus
-		// outline: none
+	color: $base-font-color
+	font-size: 1rem
 	&::placeholder
 		font: $font
-//	END INPUT
+		font-size: 1rem
 
-// CHECKBOX
-.checkbox input[type="checkbox"]
-	&:not(:checked), &:checked
-		left: -9999px
-		position: absolute
-	&:not(:checked) + label, &:checked + label
-		cursor: pointer
-		position: relative
-		padding-left: 36px
-	&:not(:checked) + label:before, &:checked + label:before
-		background: #eee
-		content: ''
-		border: 1px solid #383838
-		left: 0
-		top: 2px
-		position: absolute
-		width: 17px
-		height: 17px
-	&:not(:checked) + label:after, &:checked + label:after
-		border: 2px solid #000
-		border-left-color: transparent
-		border-top-color: transparent
-		content: ''
-		color: #000
-		position: absolute
-		top: 2px
-		left: 7px
-		font-size: 18px
-		transition: all .2s
-		height: 10px
-		width: 3px
-	&:not(:checked) + label:after
-		opacity: 0
-		transform: rotate(-90deg) scale(0)
-	&:checked + label:after
-		opacity: 1
-		transform: rotate(40deg) scale(1)
-	&:disabled
-		&:not(:checked) + label:before
-			box-shadow: none
-			border-color: #bbb
-			background-color: #ddd
-		&:checked + label
-			&:before
-				box-shadow: none
-				border-color: #bbb
-				background-color: #ddd
-			&:after
-				color: #999
-		+ label
-			color: #aaa
-	&:checked:focus + label:before, &:not(:checked):focus + label:before
-		border: 1px solid #777
-// END CHECKBOX
+textarea
 
-// RADIO
-.radio input[type="radio"]
-	&:not(:checked), &:checked
-		left: -9999px
-		position: absolute
-	&:not(:checked) + label, &:checked + label
-		cursor: pointer
-		position: relative
-		padding-left: 39px
-	&:not(:checked) + label:before, &:checked + label:before
-		//background: #eee
-		border-radius: 50%
-		border: 2px solid #000
-		content: ''
-		left: 0
-		top: 2px
-		position: absolute
-		width: 18px
-		height: 18px
-	&:not(:checked) + label:after, &:checked + label:after
-		content: ''
-		background-color: #000
-		border-radius: 50%
-		position: absolute
-		top: 7px
-		left: 5px
-		width: 12px
-		height: 12px
-		transition: all .2s
-	&:not(:checked) + label:after
-		opacity: 0
-		transform: scale(0)
-	&:checked + label:after
-		opacity: 1
-		transform: scale(1)
-	&:disabled
-		&:not(:checked) + label:before
-			box-shadow: none
-			border-color: #bbb
-			background-color: #ddd
-		&:checked + label
-			&:before
-				box-shadow: none
-				border-color: #bbb
-				background-color: #ddd
-			&:after
-				color: #999
-		+ label
-			color: #aaa
-	//&:checked:focus + label:before, &:not(:checked):focus + label:before
-		//border: 2px solid #777
-	//&:checked:focus + label:after, &:not(:checked):focus + label:after
-// END RADIO
-
-//	INPUT FILE
-.input-file
-	cursor: pointer
-	position: relative
-	label
-		cursor: pointer
-		display: block
-		transition: all .4s
-	input
-		cursor: pointer
-		display: inline-block
-		left: 0
-		opacity: 0.01
-		padding: 0
-		pointer-events: none
-		position: absolute
-		top: 0
-		//&:hover + label, &:focus + label
-//	END INPUT FILE
-
-//	INPUT NUMBER
 input
+	appearance: none
+
+input[type='number']
 	&::-webkit-outer-spin-button, &::-webkit-inner-spin-button
 		-webkit-appearance: none
-	&[type='number']
-		-moz-appearance: textfield
-//	END INPUT NUMBER
+	-moz-appearance: textfield
+//	END INPUTS & TEXTAREA
 
 
 // GRID
@@ -372,6 +235,11 @@ input
 .align-left,
 .text-left
 	text-align: left
+
+.pull-left
+	float: left
+.pull-right
+	float: right
 
 .nowrap
 	white-space: nowrap
