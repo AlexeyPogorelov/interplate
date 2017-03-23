@@ -1,6 +1,7 @@
 var prod = false;
 
 var gulp = require('gulp'),
+	empty = require('gulp-empty'),
 	pug = require('gulp-pug'),
 	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
@@ -47,13 +48,18 @@ var serverConfig = {
 // SASS
 gulp.task('sass', function () {
 	var outputStyle = prod ? 'compressed' : 'expanded';
+	if (prod) {
+		sourcemaps = {};
+		sourcemaps.init = empty;
+		sourcemaps.write = empty;
+	}
 	gulp.src(path.src.style)
 		.pipe(sourcemaps.init())
 		.pipe(sass({
-			soursemap: true,
+			soursemap: !prod,
 			outputStyle: outputStyle
 		}).on('error', sass.logError))
-		.pipe(autoprefixer({browsers:['last 4 versions']}))
+		.pipe(autoprefixer({browsers:['last 2 versions']}))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.dist.css))
 		.pipe(reload({stream:true}));
@@ -61,10 +67,9 @@ gulp.task('sass', function () {
 
 // PUG
 gulp.task('pug', function(){
-	var pretty = prod ? false : true;
 	gulp.src(path.src.html)
 		.pipe(pug({
-			pretty: true
+			pretty: !prod
 		}))
 		.pipe(gulp.dest(path.dist.html))
 		.pipe(reload({stream:true}));
@@ -72,9 +77,11 @@ gulp.task('pug', function(){
 
 // SCRIPTS
 gulp.task('scripts', function(){
-	var uglify = prod ? uglify() : function () {};
+	if (prod) {
+		uglify = empty;
+	}
 	gulp.src(path.src.js)
-		// .pipe(uglify())
+		.pipe(uglify())
 		.pipe(gulp.dest(path.dist.js))
 		.pipe(reload({stream:true}));
 });
