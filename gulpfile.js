@@ -1,7 +1,7 @@
 var prod = false;
 
 var gulp = require('gulp'),
-	empty = require('gulp-empty'),
+	gutil = require('gulp-util'),
 	pug = require('gulp-pug'),
 	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
@@ -50,8 +50,8 @@ gulp.task('sass', function () {
 	var outputStyle = prod ? 'compressed' : 'expanded';
 	if (prod) {
 		sourcemaps = {};
-		sourcemaps.init = empty;
-		sourcemaps.write = empty;
+		sourcemaps.init = gutil.noop;
+		sourcemaps.write = gutil.noop;
 	}
 	gulp.src(path.src.style)
 		.pipe(sourcemaps.init())
@@ -77,8 +77,8 @@ gulp.task('pug', function(){
 
 // SCRIPTS
 gulp.task('scripts', function(){
-	if (prod) {
-		uglify = empty;
+	if (!prod) {
+		uglify = gutil.noop;
 	}
 	gulp.src(path.src.js)
 		.pipe(uglify())
