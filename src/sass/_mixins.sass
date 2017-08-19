@@ -77,6 +77,7 @@ $media-xs-up: '(min-width: $screen-xs-max)'
 
 $grid-gap: 2rem
 
+// grid
 %flex-middle
 	align-items: center
 	display: flex
@@ -88,7 +89,7 @@ $grid-gap: 2rem
 
 %col
 	&
-		margin: 0 -$grid-gap
+		margin: 0 (-$grid-gap)
 		font-size: 0
 	& > *
 		display: inline-block
@@ -155,7 +156,7 @@ $grid-gap: 2rem
 		& > *
 			width: 25%
 
-// example
+// EXAMPLE
 // .some-class
 // 	@extend %col-3
 // 	@extend %sm-col-2
