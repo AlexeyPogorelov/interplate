@@ -4,21 +4,21 @@ html(lang='en')
 	head
 		title #{title}
 		block head
-			include ./partials/head.pug
+			include head
 	body(class= bodyClass)
 		block noscript
-			include ./partials/noscript.pug
+			include noscript
 
 		block navigation
-			include ./partials/navigation.pug
+			include navigation
 
 		block content
 
 		block footer
-			include ./partials/footer.pug
+			include footer
 
 		block modals
-			include ./partials/modals.pug
+			include modals
 
 	block scripts
-		include ./partials/scripts.pug
+		include scripts

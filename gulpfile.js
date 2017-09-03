@@ -4,6 +4,7 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	pug = require('gulp-pug'),
 	sass = require('gulp-sass'),
+	babel = require('gulp-babel'),
 	sourcemaps = require('gulp-sourcemaps'),
 	uglify = require('gulp-uglify'),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -81,6 +82,9 @@ gulp.task('scripts', function(){
 		uglify = gutil.noop;
 	}
 	gulp.src(path.src.js)
+		.pipe(babel({
+			presets: ['es2015']
+		}))
 		.pipe(uglify())
 		.pipe(gulp.dest(path.dist.js))
 		.pipe(reload({stream:true}));
