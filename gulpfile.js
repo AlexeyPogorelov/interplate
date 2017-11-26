@@ -22,7 +22,7 @@ var path = {
 	src: {
 		html: ['src/**/*.pug'],
 		js: 'src/js/*.js',
-		style: 'src/sass/*.*',
+		style: 'src/sass/build.sass',
 		img: 'src/img/**/*.*',
 		fonts: 'src/fonts/**/*.*'
 	},
